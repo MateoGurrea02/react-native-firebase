@@ -3,7 +3,7 @@ import { View, TextInput, Button, ScrollView, StyleSheet } from "react-native";
 import { State } from "react-native-gesture-handler";
 import {firebase, db} from "../database/firebase";
 
-const CreateUserScreen = () => {
+const CreateUserScreen = (props) => {
 
     const [state, setState] = useState({
         name: "",
@@ -19,17 +19,12 @@ const CreateUserScreen = () => {
             alert('Please enter a name, email and phone')
         }
         else{   
-            await firebase.db.collection('users').add({
+            await db.collection('users').add({
                 name: state.name,
                 email: state.email,
                 phone: state.phone,
             })
-            .then(() => {
-                alert('User added')
-            })
-            .catch(() => {
-                alert('Error adding user')
-            })
+            props.navigation.navigate('UserList')
         }
 
     }

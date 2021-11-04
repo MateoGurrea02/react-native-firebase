@@ -12,9 +12,9 @@ import CreateUserScreen from './screens/createUserScreen';
 function MyStack(){
   return(
     <Stack.Navigator>
-      <Stack.Screen name="CreateUserScreen" component={CreateUserScreen}/>
-      <Stack.Screen name="UserList" component={UserList}/>
-      <Stack.Screen name="UserDetail"component={UserDetail}/>
+      <Stack.Screen name="UserList" component={UserList} options={{title: 'Users List'}}/>
+      <Stack.Screen name="CreateUserScreen" component={CreateUserScreen} options={{title: 'Users Creates'}}/>
+      <Stack.Screen name="UserDetail"component={UserDetail} options={{title: 'Users Details'}}/>
     </Stack.Navigator>
   );
 }
